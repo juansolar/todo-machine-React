@@ -1,0 +1,25 @@
+.list {
+    background-color: purple;
+    height: 80%;
+    overflow: auto;
+    scrollbar-width: thin; /* Para Firefox */
+    scrollbar-color: #d1aaff transparent; /* Color de barra y fondo */
+}
+
+.list-header{
+    background-color: steelblue;
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 20px;
+    padding: 8px 32px;
+}
+
+.header-information{
+    background-color: red;
+    display: flex;
+    width: 85%;
+}
+
+.header-title{
+    width: 20%;
+}

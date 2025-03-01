@@ -14,6 +14,21 @@ const defaultTodos = [
   {title: 'Cambiar código', description: 'Se deberá realizar un cambio de código', completed: false},
   {title: 'Subir cambios', description: 'Tendremos que subir los cambios al repositorio', completed: false},
   {title: 'Esperar merge', description: 'Tengo q esperar que mi compañero termine su parte del trabajo', completed: false},
+  {title: 'Alistar maleta', description: 'Organizar la ropa tanto para el frio como el calor de esa ciudad', completed: false},
+  
+  {title: 'Subir cambios', description: 'Tendremos que subir los cambios al repositorio', completed: false},
+  {title: 'Esperar merge', description: 'Tengo q esperar que mi compañero termine su parte del trabajo', completed: false},
+  {title: 'Alistar maleta', description: 'Organizar la ropa tanto para el frio como el calor de esa ciudad', completed: false},
+  
+  {title: 'Subir cambios', description: 'Tendremos que subir los cambios al repositorio', completed: false},
+  {title: 'Esperar merge', description: 'Tengo q esperar que mi compañero termine su parte del trabajo', completed: false},
+  {title: 'Alistar maleta', description: 'Organizar la ropa tanto para el frio como el calor de esa ciudad', completed: false},
+  
+  {title: 'Subir cambios', description: 'Tendremos que subir los cambios al repositorio', completed: false},
+  {title: 'Esperar merge', description: 'Tengo q esperar que mi compañero termine su parte del trabajo', completed: false},
+  {title: 'Alistar maleta', description: 'Organizar la ropa tanto para el frio como el calor de esa ciudad', completed: false},
+  {title: 'Subir cambios', description: 'Tendremos que subir los cambios al repositorio', completed: false},
+  {title: 'Esperar merge', description: 'Tengo q esperar que mi compañero termine su parte del trabajo', completed: false},
   {title: 'Alistar maleta', description: 'Organizar la ropa tanto para el frio como el calor de esa ciudad', completed: false}
 ];
 
