@@ -1,0 +1,17 @@
+.addTitle{
+    display: flex;
+    flex-direction: column;
+}
+
+.addTitle-label{
+    font-weight: 700;
+}
+
+.addTitle-input{
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 1px solid gray;
+    padding: 4px 12px;
+    margin-top: 8px;
+};

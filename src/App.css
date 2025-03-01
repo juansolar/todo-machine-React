@@ -1,0 +1,71 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+
+.app{
+    background-color: darkcyan;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+}
+
+.app-container{
+    background-color: darkgoldenrod;
+    display: flex;
+    width: 100%;
+    height: 90%;
+}
+
+.create-container{
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+
+.create-target{
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 56%;
+    width: 52%;
+    padding: 5%;
+}
+
+.todo-container{
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.todo-search{
+    background-color: violet;
+    height: 5vh;
+    display: flex;
+    justify-content: space-around;
+    margin: 5vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
