@@ -1,4 +1,7 @@
 import './TodoItem.css';
+import miImagen from './files/delete_task.png';
+import check from './files/comprobado.png';
+import noCheck from './files/cheque.png';
 
 function TodoItem({title, description, completed}){
     return(
@@ -8,8 +11,12 @@ function TodoItem({title, description, completed}){
           <p className='item-description'>{description}</p>
         </div>
         <div className='item-options'>
-          <span>{completed ? "O" : "X"}</span>
-          <span>Del</span>
+          <div className='item-check'>
+            <img className='check-icon' src={completed ? check : noCheck} alt='icon check'/>
+          </div>
+          <div className='item-delete'>
+            <img className='delete-icon' src={miImagen} alt='delete icon'/>
+          </div>
         </div>
       </li>
     );

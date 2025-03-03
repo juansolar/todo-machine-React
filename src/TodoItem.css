@@ -10,23 +10,19 @@
 .item-information{
     display: flex;
     width: 85%;
-    background-color: aqua;
 }
 
 .item-title{
-    background-color: blue;
     width: 20%;
     font-size: .9vw;
 }
 
 .item-description{
-    background-color: goldenrod;
     width: 80%;
     font-size: .9vw;
 }
 
 .item-options{
-    background-color: red;
     display: flex;
     justify-content: space-around;
     width: 10%;
@@ -35,4 +31,14 @@
 
 .item p{
     color: white;
+}
+
+.item-delete, .item-check{
+    width: 1vw;
+    display: flex;
+    cursor: pointer;
+}
+
+.delete-icon, .check-icon{
+    width: 100%;
 }
