@@ -8,7 +8,7 @@ function TodoList(props){
                     <p className='header-title'>Title</p>
                     <p className='header-description'>Description</p>
                 </div>
-                <p>Options</p>
+                <p className='list-options'>Options</p>
             </div>
             {props.children}
         </ul>

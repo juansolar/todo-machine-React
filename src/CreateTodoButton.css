@@ -1,12 +1,12 @@
 .add-button{
     width: 50%;
-    height: 40px;
+    height: 3vw;
     border-radius: 10px;
     cursor: pointer;
     background-color: #9d4edd;
     color: white;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 1vw;
 }
 
 .add-button:hover{

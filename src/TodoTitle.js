@@ -1,6 +1,8 @@
-function TodoTitle({ title, size }){
+import './TodoTitle.css';
+
+function TodoTitle({ title, classType }){
     return(
-        <p style={ {fontSize: size, fontWeight: "bold", textAlign: "center"}}>{title}</p>
+        <p className={classType}>{title}</p>
     );
 }
 

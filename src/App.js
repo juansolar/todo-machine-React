@@ -46,11 +46,11 @@ const description = {
 function App() {
   return (
     <div className='app'>
-      <TodoTitle title={'TO-DO MACHINE'} size={32}/>
+      <TodoTitle title={'TO-DO MACHINE'} classType={'title-principal'}/>
       <div className='app-container'>
         <div className='create-container'>
           <div className='create-target'>
-            <TodoTitle title={'CREATE NEW TASK'} size={20}/>
+            <TodoTitle title={'CREATE NEW TASK'} classType={'title-secundary'}/>
             <TodoAddName name={'TITLE'}/>
             <TodoAddDescription name={'DESCRIPTION'} written={description.written} total={description.total}/>
             <CreateTodoButton />

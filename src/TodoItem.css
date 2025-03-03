@@ -1,5 +1,6 @@
 .item{
-    background-color: yellow;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
     margin: 8px 20px;
@@ -15,11 +16,13 @@
 .item-title{
     background-color: blue;
     width: 20%;
+    font-size: .9vw;
 }
 
 .item-description{
     background-color: goldenrod;
     width: 80%;
+    font-size: .9vw;
 }
 
 .item-options{
@@ -27,4 +30,5 @@
     display: flex;
     justify-content: space-around;
     width: 10%;
+    font-size: .9vw;
 }
