@@ -6,4 +6,10 @@
     padding: 5px;
     width: 11%;
     font-size: .7vw;
+    color: white;
+    font-weight: bold;
+}
+
+.SelectType-option{
+    background-color: rgba(55, 55, 55, 0.5);
 }

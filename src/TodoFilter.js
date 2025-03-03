@@ -4,7 +4,7 @@ function TodoFilter({typeTodo}){
     return(
         <select className="SelectType">
             {typeTodo.map( (typeTodo, index) => (
-                <option key={index} value={typeTodo.type}>{typeTodo.text}</option>
+                <option className='SelectType-option' key={index} value={typeTodo.type}>{typeTodo.text}</option>
             ) )}
         </select>
     );

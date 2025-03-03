@@ -5,15 +5,23 @@
 
 .addTitle-label{
     font-size: 1vw;
-    font-weight: 700;
+    font-weight: bold;
+    color: white;
 }
 
 .addTitle-input{
     outline: none;
     border: none;
     background: none;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid white;
     padding: 4px 12px;
     margin-top: 8px;
     font-size: 1vw;
+    color: white;
+    font-weight: bold;
+}
+
+.addTitle-input[type="text"]::placeholder{
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 1; 
 }

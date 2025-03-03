@@ -19,14 +19,12 @@
 }
 
 .app-container{
-    background-color: darkgoldenrod;
     display: flex;
     width: 100%;
     height: 90%;
 }
 
 .create-container{
-    background-color: red;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,28 +32,28 @@
 }
 
 .create-target{
-    background-color: bisque;
+    background-color: rgba(255, 255, 255, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 56%;
     width: 52%;
     padding: 5%;
+    border-radius: 20px;
 }
 
 .todo-container{
-    background-color: green;
     display: flex;
     flex-direction: column;
     width: 60%;
 }
 
 .todo-search{
-    background-color: violet;
     height: 5vh;
     display: flex;
     justify-content: space-around;
     margin: 4vh 2vw;
+    color: white;
 }
 
 
