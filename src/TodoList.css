@@ -1,13 +1,28 @@
 .list {
-    background-color: purple;
     height: 80%;
-    overflow: auto;
-    scrollbar-width: thin; /* Para Firefox */
-    scrollbar-color: #d1aaff transparent; /* Color de barra y fondo */
+    overflow-y: scroll;
 }
 
+.list::-webkit-scrollbar {
+    width: var(--width, 1vw);
+    background: #333;
+    border-radius: 100px;
+  }
+  
+  .list::-webkit-scrollbar-track {
+    background: #444;
+    border-radius: 100px;
+  }
+  
+  .list::-webkit-scrollbar-thumb {
+    background: yellowgreen;
+    border-radius: 100px;
+  }
+  
+  .list::-webkit-scrollbar-thumb:hover { background: lawngreen; }
+  .list::-webkit-scrollbar-thumb:active { background: deeppink; }
+
 .list-header{
-    background-color: steelblue;
     display: flex;
     justify-content: space-between;
     margin: 8px 20px;
@@ -16,11 +31,15 @@
 }
 
 .header-information{
-    background-color: red;
     display: flex;
     width: 85%;
 }
 
 .header-title{
     width: 20%;
+}
+
+.list-header p{
+    font-weight: bold;
+    color: white;
 }
