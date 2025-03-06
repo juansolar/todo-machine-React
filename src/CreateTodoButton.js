@@ -2,7 +2,9 @@ import './CreateTodoButton.css';
 
 function CreateTodoButton(){
     return(
-      <button className="add-button">Add Task</button>
+      <button className="add-button" onClick={ () => console.log('Le diste click') }>
+        Add Task
+      </button>
     );
   }
 
