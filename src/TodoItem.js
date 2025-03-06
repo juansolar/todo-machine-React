@@ -3,7 +3,7 @@ import miImagen from './files/delete_task.png';
 import check from './files/comprobado.png';
 import noCheck from './files/cheque.png';
 
-function TodoItem({title, description, completed}){
+function TodoItem({title, description, completed, onComplete, onDelete}){
     return(
       <li className="item">
         <div className='item-information'>
@@ -12,10 +12,12 @@ function TodoItem({title, description, completed}){
         </div>
         <div className='item-options'>
           <div className='item-check'>
-            <img className='check-icon' src={completed ? check : noCheck} alt='icon check'/>
+            <img className='check-icon' src={completed ? check : noCheck} alt='icon check'
+              onClick={onComplete}/>
           </div>
           <div className='item-delete'>
-            <img className='delete-icon' src={miImagen} alt='delete icon'/>
+            <img className='delete-icon' src={miImagen} alt='delete icon'
+              onClick={onDelete}/>
           </div>
         </div>
       </li>

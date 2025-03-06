@@ -58,6 +58,19 @@ function App() {
     }
   );
 
+  const completeTodo = (title) =>{
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex( (todo) => todo.title === title )
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+    setTodos(newTodos);
+  }
+
+  const deleteTodo = (title) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex( (todo) => todo.title === title );
+    newTodos.splice(todoIndex,1);
+    setTodos(newTodos);
+  }
 
   return (
     <div className='app'>
@@ -79,7 +92,13 @@ function App() {
           <TodoCounter completed={completedTodos} total={totalTodos} />
           <TodoList>
             {searchedTodos.map( todo => (
-                <TodoItem key={todo.title} title={todo.title} description={todo.description} completed={todo.completed}/>)
+                <TodoItem key={todo.title} 
+                  title={todo.title} 
+                  description={todo.description} 
+                  completed={todo.completed}
+                  onComplete = { () => completeTodo(todo.title) }
+                  onDelete = { () => deleteTodo(todo.title) }
+                  />)
               )}
           </TodoList>
         </div>
