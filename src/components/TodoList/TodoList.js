@@ -1,6 +1,6 @@
 import './TodoList.css';
 
-function TodoList(props){
+function TodoList({children}){
     return(
         <div className='list'>
             <div className="list-header">
@@ -12,7 +12,7 @@ function TodoList(props){
             </div>            
             <ul className="list-u">
                 <div className='list-items'>
-                    {props.children}
+                    {children}
                 </div>
             </ul>
         </div>

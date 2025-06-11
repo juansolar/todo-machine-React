@@ -1,13 +1,13 @@
 import './TodoFilter.css';
 
-function TodoFilter({typeTodo, setFilterValue}){
+function TodoFilter({type, setFilterValue}){
 
     return(
         <select className="SelectType" onChange={ (event) => setFilterValue(event.target.value) }>
-            {typeTodo.map( (typeTodo, index) => (
+            {type.map( (item, index) => (
                 <option className='SelectType-option' 
-                    key={index} value={typeTodo.type} >
-                        {typeTodo.text}
+                    key={index} value={item.type} >
+                        {item.text}
                 </option>
             ) )}
         </select>

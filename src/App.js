@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
-import { TodoCounter } from './TodoCounter';
-import { TodoSearch } from './TodoSearch';
-import { TodoList } from './TodoList';
-import { TodoItem } from './TodoItem';
-import { TodoFilter } from './TodoFilter';
-import { CreateTodoButton } from './CreateTodoButton';
-import { TodoTitle } from './TodoTitle';
-import { TodoAddName } from './TodoAddName';
-import { TodoAddDescription } from './TodoAddDescription';
+import { TodoCounter } from './components/TodoCounter/TodoCounter';
+import { TodoSearch } from './components/TodoSearch/TodoSearch';
+import { TodoList } from './components/TodoList/TodoList';
+import { TodoItem } from './components/TodoItem/TodoItem';
+import { TodoFilter } from './components/TodoFilter/TodoFilter';
+import { CreateTodoButton } from './components/CreateTodoButton/CreateTodoButton';
+import { TodoTitle } from './components/TodoTitle/TodoTitle';
+import { TodoAddName } from './components/TodoAddName/TodoAddName';
+import { TodoAddDescription } from './components/TodoAddDescription/TodoAddDescription';
 
 import './App.css';
 
@@ -79,15 +79,15 @@ function App() {
         <div className='create-container'>
           <div className='create-target'>
             <TodoTitle title={'CREATE NEW TASK'} classType={'title-secundary'}/>
-            <TodoAddName name={'TITLE'}/>
-            <TodoAddDescription name={'DESCRIPTION'} written={description.written} total={description.total}/>
-            <CreateTodoButton />
+            <TodoAddName name={'Title'}/>
+            <TodoAddDescription name={'Description'} written={description.written} total={description.total}/>
+            <CreateTodoButton name={'Add Task'}/>
           </div>
         </div>
         <div className='todo-container'>
           <div className='todo-search'>
             <TodoSearch setSearchValue={setSearchValue} searchValue={searchValue}/>
-            <TodoFilter typeTodo={typeTodo} setFilterValue={setFilterValue}/>
+            <TodoFilter type={typeTodo} setFilterValue={setFilterValue}/>
           </div>
           <TodoCounter completed={completedTodos} total={totalTodos} />
           <TodoList>

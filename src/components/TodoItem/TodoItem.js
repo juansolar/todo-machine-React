@@ -1,7 +1,7 @@
 import './TodoItem.css';
-import miImagen from './files/delete_task.png';
-import check from './files/comprobado.png';
-import noCheck from './files/cheque.png';
+import miImagen from '../../files/delete_task.png';
+import check from '../../files/comprobado.png';
+import noCheck from '../../files/cheque.png';
 
 function TodoItem({title, description, completed, onComplete, onDelete}){
     return(
