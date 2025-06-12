@@ -20,7 +20,6 @@ function TodoAddDescription({name}){
             <label className='addDescription-label'>{name}:</label>
             <div className='addDescription-text'>
                 <textarea className='addDescription-textarea' placeholder={`Type the ${name.toLowerCase()}`}
-                    value={description}
                     onKeyDown={handleDescription}
                 />
                 <p className='addDescription-p'>{description.length} de {totalCharacters}</p>

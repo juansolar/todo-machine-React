@@ -12,17 +12,20 @@ import { TodoAddDescription } from './components/TodoAddDescription/TodoAddDescr
 
 import './App.css';
 
-const defaultTodos = [
-  {title: 'Cambiar código', description: 'Se deberá realizar un cambio de código', completed: false},
-  {title: 'Subir cambios', description: 'Tendremos que subir los cambios al repositorio', completed: true},
-  {title: 'Esperar merge', description: 'Tengo q esperar que mi compañero termine su parte del trabajo', completed: true},
-  {title: 'Alistar maleta', description: 'Organizar la ropa tanto para el frio como el calor de esa ciudad', completed: false},
-  {title: 'tarea 2', description: 'Organizar la ropa tanto para el frio como el calor de esa ciudad', completed: false},
-  {title: 'tarea 3', description: 'Organizar la habitación tanto para el frio como el calor de esa ciudad', completed: false},
-  {title: 'tarea 4', description: 'Organizar la casa de campo tanto para el frio como el calor de esa ciudad', completed: true},
-  {title: 'tarea 5', description: 'Organizar la maleta tanto para el frio como el calor de esa ciudad', completed: true},
-  {title: 'viajar', description: 'Viajar a Popayán', completed: true}
-];
+// const defaultTodos = [
+//   {title: 'Cambiar código', description: 'Se deberá realizar un cambio de código', completed: false},
+//   {title: 'Subir cambios', description: 'Tendremos que subir los cambios al repositorio', completed: true},
+//   {title: 'Esperar merge', description: 'Tengo q esperar que mi compañero termine su parte del trabajo', completed: true},
+//   {title: 'Alistar maleta', description: 'Organizar la ropa tanto para el frio como el calor de esa ciudad', completed: false},
+//   {title: 'tarea 2', description: 'Organizar la ropa tanto para el frio como el calor de esa ciudad', completed: false},
+//   {title: 'tarea 3', description: 'Organizar la habitación tanto para el frio como el calor de esa ciudad', completed: false},
+//   {title: 'tarea 4', description: 'Organizar la casa de campo tanto para el frio como el calor de esa ciudad', completed: true},
+//   {title: 'tarea 5', description: 'Organizar la maleta tanto para el frio como el calor de esa ciudad', completed: true},
+//   {title: 'viajar', description: 'Viajar a Popayán', completed: true}
+// ];
+
+// localStorage.setItem('defaultTodos_TODO_Machine_v1', JSON.stringify(defaultTodos));
+// localStorage.removeItem('defaultTodos_TODO_Machine_v1');
 
 const typeTodo = [
   {type: 'all', text: 'All'},
@@ -32,7 +35,17 @@ const typeTodo = [
 
 function App() {
 
-  const [todos, setTodos] = useState(defaultTodos); //Tareas
+  const localStorageTodos = localStorage.getItem('defaultTodos_TODO_Machine_v1');
+  let parsedTodos;
+
+  if(!localStorageTodos){
+    localStorage.setItem('defaultTodos_TODO_Machine_v1',JSON.stringify([]));
+    parsedTodos = [];
+  }else{
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+
+  const [todos, setTodos] = useState(parsedTodos); //Tareas
   const [searchValue, setSearchValue] = React.useState('');//valor de búsqueda
   const [filterValue, setFilterValue] = React.useState('all');//filtro de búsqueda
 
@@ -57,13 +70,19 @@ function App() {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex( (todo) => todo.title === title )
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   }
 
   const deleteTodo = (title) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex( (todo) => todo.title === title );
     newTodos.splice(todoIndex,1);
+    saveTodos(newTodos);
+  }
+
+  //Actualizar la información en localStorage y en el estado
+  const saveTodos = (newTodos) => {
+    localStorage.setItem('defaultTodos_TODO_Machine_v1', JSON.stringify(newTodos));
     setTodos(newTodos);
   }
 
