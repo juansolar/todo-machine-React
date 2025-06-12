@@ -30,11 +30,6 @@ const typeTodo = [
   {type: 'incomplete', text: 'Incomplete'}
 ]
 
-const description = {
-  written: 0,
-  total: 100
-}
-
 function App() {
 
   const [todos, setTodos] = useState(defaultTodos); //Tareas
@@ -80,7 +75,7 @@ function App() {
           <div className='create-target'>
             <TodoTitle title={'CREATE NEW TASK'} classType={'title-secundary'}/>
             <TodoAddName name={'Title'}/>
-            <TodoAddDescription name={'Description'} written={description.written} total={description.total}/>
+            <TodoAddDescription name={'Description'}/>
             <CreateTodoButton name={'Add Task'}/>
           </div>
         </div>

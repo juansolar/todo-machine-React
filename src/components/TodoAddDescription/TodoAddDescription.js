@@ -1,12 +1,29 @@
+import { useState } from 'react';
 import './TodoAddDescription.css';
 
-function TodoAddDescription({name, written, total}){
+const totalCharacters = 50;
+
+function TodoAddDescription({name}){
+
+    const [description, setDescription] = useState('');
+
+    const handleDescription = (event) =>{
+        if (event.key === "Delete" || event.key === "Backspace") 
+            setDescription((prev) => prev.slice(0, -1) )
+        else if(description.length < totalCharacters)
+            setDescription((prev) => prev + event.key);
+    }
+
+
     return(
         <div className="addDescription">
             <label className='addDescription-label'>{name}:</label>
             <div className='addDescription-text'>
-                <textarea className='addDescription-textarea' placeholder={`Type the ${name.toLowerCase()}`}></textarea>
-                <p className='addDescription-p'>{written} de {total}</p>
+                <textarea className='addDescription-textarea' placeholder={`Type the ${name.toLowerCase()}`}
+                    value={description}
+                    onKeyDown={handleDescription}
+                />
+                <p className='addDescription-p'>{description.length} de {totalCharacters}</p>
             </div>
         </div>
     )
