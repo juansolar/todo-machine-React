@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { TodoCounter } from './components/TodoCounter/TodoCounter';
 import { TodoSearch } from './components/TodoSearch/TodoSearch';
@@ -9,6 +9,8 @@ import { CreateTodoButton } from './components/CreateTodoButton/CreateTodoButton
 import { TodoTitle } from './components/TodoTitle/TodoTitle';
 import { TodoAddName } from './components/TodoAddName/TodoAddName';
 import { TodoAddDescription } from './components/TodoAddDescription/TodoAddDescription';
+
+import { useLocalStorage } from './customHooks/useLocalStorage.js';
 
 import './App.css';
 
@@ -35,19 +37,9 @@ const typeTodo = [
 
 function App() {
 
-  const localStorageTodos = localStorage.getItem('defaultTodos_TODO_Machine_v1');
-  let parsedTodos;
-
-  if(!localStorageTodos){
-    localStorage.setItem('defaultTodos_TODO_Machine_v1',JSON.stringify([]));
-    parsedTodos = [];
-  }else{
-    parsedTodos = JSON.parse(localStorageTodos);
-  }
-
-  const [todos, setTodos] = useState(parsedTodos); //Tareas
-  const [searchValue, setSearchValue] = React.useState('');//valor de búsqueda
-  const [filterValue, setFilterValue] = React.useState('all');//filtro de búsqueda
+  const [todos, saveTodos] = useLocalStorage('defaultTodos_TODO_Machine_v1',[]); //nombre item localStorage, estadoInicial
+  const [searchValue, setSearchValue] = useState('');//valor de búsqueda
+  const [filterValue, setFilterValue] = useState('all');//filtro de búsqueda
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
@@ -78,12 +70,6 @@ function App() {
     const todoIndex = newTodos.findIndex( (todo) => todo.title === title );
     newTodos.splice(todoIndex,1);
     saveTodos(newTodos);
-  }
-
-  //Actualizar la información en localStorage y en el estado
-  const saveTodos = (newTodos) => {
-    localStorage.setItem('defaultTodos_TODO_Machine_v1', JSON.stringify(newTodos));
-    setTodos(newTodos);
   }
 
   return (
