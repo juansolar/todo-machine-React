@@ -1,18 +1,10 @@
 import { useState } from 'react';
 
-import { TodoCounter } from './components/TodoCounter/TodoCounter';
-import { TodoSearch } from './components/TodoSearch/TodoSearch';
-import { TodoList } from './components/TodoList/TodoList';
-import { TodoItem } from './components/TodoItem/TodoItem';
-import { TodoFilter } from './components/TodoFilter/TodoFilter';
-import { CreateTodoButton } from './components/CreateTodoButton/CreateTodoButton';
-import { TodoTitle } from './components/TodoTitle/TodoTitle';
-import { TodoAddName } from './components/TodoAddName/TodoAddName';
-import { TodoAddDescription } from './components/TodoAddDescription/TodoAddDescription';
-
-import { useLocalStorage } from './customHooks/useLocalStorage.js';
+import { AppUI } from './AppUI.js';
+import { useLocalStorage } from '../customHooks/useLocalStorage.js';
 
 import './App.css';
+
 
 // const defaultTodos = [
 //   {title: 'Cambiar código', description: 'Se deberá realizar un cambio de código', completed: false},
@@ -72,40 +64,19 @@ function App() {
     saveTodos(newTodos);
   }
 
-  return (
-    <div className='app'>
-      <TodoTitle title={'TO-DO MACHINE'} classType={'title-principal'}/>
-      <div className='app-container'>
-        <div className='create-container'>
-          <div className='create-target'>
-            <TodoTitle title={'CREATE NEW TASK'} classType={'title-secundary'}/>
-            <TodoAddName name={'Title'}/>
-            <TodoAddDescription name={'Description'}/>
-            <CreateTodoButton name={'Add Task'}/>
-          </div>
-        </div>
-        <div className='todo-container'>
-          <div className='todo-search'>
-            <TodoSearch setSearchValue={setSearchValue} searchValue={searchValue}/>
-            <TodoFilter type={typeTodo} setFilterValue={setFilterValue}/>
-          </div>
-          <TodoCounter completed={completedTodos} total={totalTodos} />
-          <TodoList>
-            {searchedTodos.map( todo => (
-                <TodoItem key={todo.title} 
-                  title={todo.title} 
-                  description={todo.description} 
-                  completed={todo.completed}
-                  onComplete = { () => completeTodo(todo.title) }
-                  onDelete = { () => deleteTodo(todo.title) }
-                  />)
-              )}
-          </TodoList>
-        </div>
-      </div>
-
-    </div>
-  );
+  return( 
+    <AppUI 
+      setSearchValue = {setSearchValue}
+      searchValue = {searchValue}
+      typeTodo = {typeTodo}
+      setFilterValue = {setFilterValue}
+      completedTodos = {completedTodos}
+      totalTodos = {totalTodos}
+      searchedTodos = {searchedTodos}
+      completeTodo = {completeTodo}
+      deleteTodo = {deleteTodo}
+    />
+  )
 }
 
 export default App;
