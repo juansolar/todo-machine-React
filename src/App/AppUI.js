@@ -7,6 +7,7 @@ import { CreateTodoButton } from '../components/CreateTodoButton/CreateTodoButto
 import { TodoTitle } from '../components/TodoTitle/TodoTitle.js';
 import { TodoAddName } from '../components/TodoAddName/TodoAddName.js';
 import { TodoAddDescription } from '../components/TodoAddDescription/TodoAddDescription.js';
+import { TodosLoading } from '../components/TodosLoading/TodosLoading.js';
 
 function AppUI({
     setSearchValue,
@@ -17,7 +18,9 @@ function AppUI({
     totalTodos,
     searchedTodos,
     completeTodo,
-    deleteTodo
+    deleteTodo,
+    loading,
+    error,
 }){
   return (
     <div className='app'>
@@ -36,9 +39,12 @@ function AppUI({
             <TodoSearch setSearchValue={setSearchValue} searchValue={searchValue}/>
             <TodoFilter type={typeTodo} setFilterValue={setFilterValue}/>
           </div>
-          <TodoCounter completed={completedTodos} total={totalTodos} />
+          {!loading && <TodoCounter completed={completedTodos} total={totalTodos} />}
           <TodoList>
-            {searchedTodos.map( todo => (
+            {loading && <TodosLoading />}
+            {error && <p>Existe un error</p>}
+            {(!loading && !error && searchedTodos === 0) ? <p>Crea tu primera tarea</p>
+              :searchedTodos.map( todo => (
                 <TodoItem key={todo.title} 
                   title={todo.title} 
                   description={todo.description} 
@@ -46,7 +52,8 @@ function AppUI({
                   onComplete = { () => completeTodo(todo.title) }
                   onDelete = { () => deleteTodo(todo.title) }
                   />)
-              )}
+              )
+            }
           </TodoList>
         </div>
       </div>

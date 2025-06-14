@@ -1,18 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function useLocalStorage(itemName, initialValue) {
 
-  const localStorageItems = localStorage.getItem(itemName);
-  let parsedItems;
+  const [item, setItem] = useState(initialValue); //Estado inicial
+  const [loading, setLoading] = useState(true);//Estado de carga
+  const [error, setError] = useState(false);//Estado de error
 
-  if(!localStorageItems){
-    localStorage.setItem(itemName,JSON.stringify(initialValue));
-    parsedItems = [];
-  }else{
-    parsedItems = JSON.parse(localStorageItems);
-  }
+  useEffect( () =>{
+    setTimeout(() =>{
+      try {
+        const localStorageItems = localStorage.getItem(itemName);
+        let parsedItems;
 
-  const [item, setItem] = useState(parsedItems); //Estado inicial
+        if(!localStorageItems){
+          localStorage.setItem(itemName,JSON.stringify(initialValue));
+          parsedItems = [];
+        }else{
+          parsedItems = JSON.parse(localStorageItems);
+          setItem(parsedItems);
+        }
+      } catch (error) {
+        console.log('Ups, error: ', error);
+        setError(true);
+      }finally{
+        setLoading(false);
+      }
+    },2000)
+
+  },[]);
 
   //Actualizar la información en localStorage y en el estado
   const saveItems = (newItems) => {
@@ -20,7 +35,12 @@ function useLocalStorage(itemName, initialValue) {
     setItem(newItems);
   }
 
-  return [item, saveItems];
+  return {
+    item, 
+    saveItems, 
+    loading, 
+    error
+  };
 }
 
 export {useLocalStorage}

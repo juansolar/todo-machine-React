@@ -5,7 +5,7 @@ import { useLocalStorage } from '../customHooks/useLocalStorage.js';
 
 import './App.css';
 
-
+// localStorage.removeItem('defaultTodos_TODO_Machine_v1');
 // const defaultTodos = [
 //   {title: 'Cambiar código', description: 'Se deberá realizar un cambio de código', completed: false},
 //   {title: 'Subir cambios', description: 'Tendremos que subir los cambios al repositorio', completed: true},
@@ -19,7 +19,6 @@ import './App.css';
 // ];
 
 // localStorage.setItem('defaultTodos_TODO_Machine_v1', JSON.stringify(defaultTodos));
-// localStorage.removeItem('defaultTodos_TODO_Machine_v1');
 
 const typeTodo = [
   {type: 'all', text: 'All'},
@@ -29,7 +28,13 @@ const typeTodo = [
 
 function App() {
 
-  const [todos, saveTodos] = useLocalStorage('defaultTodos_TODO_Machine_v1',[]); //nombre item localStorage, estadoInicial
+  const {
+    item: todos,
+    saveItems: saveTodos, 
+    loading, 
+    error
+  } = useLocalStorage('defaultTodos_TODO_Machine_v1',[]); //nombre item localStorage, estadoInicial
+
   const [searchValue, setSearchValue] = useState('');//valor de búsqueda
   const [filterValue, setFilterValue] = useState('all');//filtro de búsqueda
 
@@ -75,6 +80,8 @@ function App() {
       searchedTodos = {searchedTodos}
       completeTodo = {completeTodo}
       deleteTodo = {deleteTodo}
+      loading = {loading}
+      error = {error}
     />
   )
 }
