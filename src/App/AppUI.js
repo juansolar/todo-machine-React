@@ -8,6 +8,7 @@ import { TodoTitle } from '../components/TodoTitle/TodoTitle.js';
 import { TodoAddName } from '../components/TodoAddName/TodoAddName.js';
 import { TodoAddDescription } from '../components/TodoAddDescription/TodoAddDescription.js';
 import { TodosLoading } from '../components/TodosLoading/TodosLoading.js';
+import { TodoError } from '../components/TodoError/TodoError.js';
 
 function AppUI({
     setSearchValue,
@@ -42,16 +43,18 @@ function AppUI({
           {!loading && <TodoCounter completed={completedTodos} total={totalTodos} />}
           <TodoList>
             {loading && <TodosLoading />}
-            {error && <p>Existe un error</p>}
+            {!loading && error && <TodoError errorCode={'503'} errorMessage={'Error al cargar las tareas, intente nuevamente'}/>}
             {(!loading && !error && searchedTodos === 0) ? <p>Crea tu primera tarea</p>
-              :searchedTodos.map( todo => (
-                <TodoItem key={todo.title} 
-                  title={todo.title} 
-                  description={todo.description} 
-                  completed={todo.completed}
-                  onComplete = { () => completeTodo(todo.title) }
-                  onDelete = { () => deleteTodo(todo.title) }
-                  />)
+              : (!loading && !error && 
+                  searchedTodos.map( todo => (
+                  <TodoItem key={todo.title} 
+                    title={todo.title} 
+                    description={todo.description} 
+                    completed={todo.completed}
+                    onComplete = { () => completeTodo(todo.title) }
+                    onDelete = { () => deleteTodo(todo.title) }
+                    />)
+                )
               )
             }
           </TodoList>
