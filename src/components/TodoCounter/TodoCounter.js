@@ -1,15 +1,23 @@
+import { useContext } from 'react';
 import './TodoCounter.css';
+import { TodoContext } from '../../context/TodoContext';
 
-function TodoCounter({total, completed}){
+function TodoCounter(){
+
+    const {
+        totalTodos, 
+        completedTodos
+    } = useContext(TodoContext);
+
     return(
         <>
-            {total === 0 ? 
+            {totalTodos === 0 ? 
                 <p className='counter-p'>
                     You have no tasks registered
                 </p>
-                : (total !== completed ? (
+                : (totalTodos !== completedTodos ? (
                     <p className='counter-p'>
-                        You have completed {completed} out of {total} tasks
+                        You have completed {completedTodos} out of {totalTodos} tasks
                     </p>
                 ): (
                     <p className='counter-p'>

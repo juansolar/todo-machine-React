@@ -1,6 +1,18 @@
+import { useContext } from 'react';
 import './TodoFilter.css';
+import { TodoContext } from '../../context/TodoContext';
 
-function TodoFilter({type, setFilterValue}){
+const type = [
+  {type: 'all', text: 'All'},
+  {type: 'complete', text: 'Complete'},
+  {type: 'incomplete', text: 'Incomplete'}
+]
+
+function TodoFilter(){
+
+    const {
+        setFilterValue
+    } = useContext(TodoContext);
 
     return(
         <select className="SelectType" onChange={ (event) => setFilterValue(event.target.value) }>
