@@ -33,6 +33,7 @@ function TodoProvider({children}){
         }
     );
 
+    //Marcar tarea completada
     const completeTodo = (title) =>{
         const newTodos = [...todos];
         const todoIndex = newTodos.findIndex( (todo) => todo.title === title )
@@ -40,12 +41,24 @@ function TodoProvider({children}){
         saveTodos(newTodos);
     }
 
+    //Eliminar Tarea
     const deleteTodo = (title) => {
         const newTodos = [...todos];
         const todoIndex = newTodos.findIndex( (todo) => todo.title === title );
         newTodos.splice(todoIndex,1);
         saveTodos(newTodos);
     }
+
+    //Agregar tarea
+    const createTodo = (title, description) => {
+        const newTodos = [...todos];
+        const todo = {
+            title: title,
+            description: description
+        }
+        newTodos.push(todo);
+        saveTodos(newTodos);
+    } 
 
     return(
         <TodoContext.Provider value={{
@@ -59,6 +72,7 @@ function TodoProvider({children}){
             deleteTodo,
             loading,
             error,
+            createTodo
         }}>
             {children}
         </TodoContext.Provider>
